@@ -54,3 +54,20 @@ const imagens = [
     }
   ];
 
+let anterior = document.querySelector("#anterior");
+let proximo = document.querySelector("#proximo");
+let slide = document.querySelector("#slide");
+
+let indexImg = 1;
+
+anterior.addEventListener("click", function() {
+  indexImg = (indexImg == 1) ? imagens.length : indexImg - 1;
+  slide.src = servidorDasImagens + "/" + imagens[indexImg-1].arquivo;
+  slide.alt = imagens[indexImg-1].descricao;
+});
+
+proximo.addEventListener("click", function() {
+  indexImg = (indexImg == imagens.length) ? 1 : indexImg + 1;
+  slide.src = servidorDasImagens + "/" + imagens[indexImg-1].arquivo;
+  slide.alt = imagens[indexImg-1].descricao;
+});
